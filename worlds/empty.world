@@ -1,13 +1,38 @@
-<?xml version="1.0" ?>
-<sdf version="1.5">
-  <world name="default">
+<!--<?xml version="1.0" ?>-->
+<sdf version='1.6'>
+  <world name='default'>
+
+    <!-- lighting -->
+    <scene>
+      <ambient>0.5 0.5 0.5 1</ambient>
+      <background>0.5 0.5 0.5 1</background>
+      <shadows>0</shadows>
+    </scene>
+
     <!-- A global light source -->
     <include>
       <uri>model://sun</uri>
     </include>
+
     <!-- A ground plane -->
     <include>
       <uri>model://ground_plane</uri>
     </include>
+
+
+    <!-- Drone Model
+    To make the path "model://.." work, set the GAZEBO_MODEL_PATH in .bashrc to: 
+    GAZEBO_MODEL_PATH=uibk/6_term/BA/implementation/ardupilot_gazebo/models:$GAZEBO_MODEL_PATH  
+    -->
+    <model name="iris_demo">
+       <link name='iris_demo::iris::base_link'>
+       </link>
+       <link name='iris_with_ardupilot'>
+       </link>
+      <!-- <include>
+        <uri>model://iris_with_ardupilot</uri>
+      </include> -->
+    </model>
+
   </world>
 </sdf>
